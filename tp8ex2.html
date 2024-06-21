@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Événements Utilisateur</title>
+</head>
+<body>
+    <button id="myButton">Cliquez-moi !</button>
+    <p id="message"></p>
+
+    
+</body>
+</html>
+<script>
+    const button = document.getElementById('myButton');
+const message = document.getElementById('message');
+
+button.addEventListener('click', function() {
+    message.innerText = "Le bouton a été cliqué !";
+});
+
+button.addEventListener('mouseover', function() {
+    button.style.backgroundColor = 'yellow';
+});
+
+button.addEventListener('mouseout', function() {
+    button.style.backgroundColor = '';
+});
+
+</script>

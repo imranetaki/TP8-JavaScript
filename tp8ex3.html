@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'Inscription</title>
+</head>
+<body>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="nameError" class="error"></span><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error"></span><br><br>
+
+        <label for="phone">Téléphone:</label>
+        <input type="text" id="phone" name="phone" required>
+        <span id="phoneError" class="error"></span><br><br>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="passwordError" class="error"></span><br><br>
+
+        <button type="submit">Soumettre</button>
+    </form>
+
+    
+</body>
+</html>
+<script>
+    function validateForm() {
+    let isValid = true;
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const passwordError = document.getElementById('passwordError');
+
+    // Reset error messages
+    nameError.innerText = '';
+    emailError.innerText = '';
+    phoneError.innerText = '';
+    passwordError.innerText = '';
+
+    // Validate name
+    if (name.length < 3) {
+        nameError.innerText = 'Le nom doit contenir au moins 3 caractères.';
+        isValid = false;
+    }
+
+    // Validate email
+    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegExp.test(email)) {
+        emailError.innerText = 'Veuillez entrer une adresse email valide.';
+        isValid = false;
+    }
+
+    // Validate phone
+    const phoneRegExp = /^\d{10}$/;
+    if (!phoneRegExp.test(phone)) {
+        phoneError.innerText = 'Le numéro de téléphone doit contenir exactement 10 chiffres.';
+        isValid = false;
+    }
+
+    // Validate password
+    if (password.length < 6) {
+        passwordError.innerText = 'Le mot de passe doit contenir au moins 6 caractères.';
+        isValid = false;
+    }
+
+    if (isValid) {
+        alert('Le formulaire a été soumis avec succès.');
+    }
+
+    return isValid;
+}
+
+</script>

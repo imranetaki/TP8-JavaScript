@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Changer la Couleur d'Arrière-Plan</title>
+</head>
+<body>
+    <label for="colorSelect">Choisissez une couleur:</label>
+    <select id="colorSelect">
+        <option value="Jaune">Jaune</option>
+        <option value="Vert">Vert</option>
+        <option value="Rouge">Rouge</option>
+        <option value="Noir">Noir</option>
+    </select>
+
+    
+</body>
+</html>
+<script>
+    document.getElementById('colorSelect').addEventListener('change', function() {
+    const selectedColor = this.value;
+    document.body.style.backgroundColor = selectedColor.toLowerCase();
+});
+
+</script>
